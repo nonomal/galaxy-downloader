@@ -9,6 +9,7 @@ import {
     DialogTitle,
     DialogTrigger,
 } from '@/components/ui/dialog'
+import { ScrollArea } from '@/components/ui/scroll-area'
 import type { Locale } from '@/lib/i18n/config'
 import type { Dictionary } from '@/lib/i18n/types'
 import changelogData from '@/lib/changelog.json'
@@ -43,7 +44,7 @@ export function ChangelogDialog({ locale, dict }: ChangelogDialogProps) {
                 <DialogHeader>
                     <DialogTitle>{title}</DialogTitle>
                 </DialogHeader>
-                <div className="max-h-[60vh] overflow-y-auto pr-2">
+                <ScrollArea className="max-h-[60vh] pr-2">
                     <div className="space-y-6">
                         {changelogData.versions.map((version) => (
                             <div key={version.version} className="border-b border-border pb-4 last:border-b-0 last:pb-0">
@@ -62,7 +63,7 @@ export function ChangelogDialog({ locale, dict }: ChangelogDialogProps) {
                             </div>
                         ))}
                     </div>
-                </div>
+                </ScrollArea>
             </DialogContent>
         </Dialog>
     )
